@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-using Modding.Utils;
-=======
 ﻿using Modding.Utils;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 using Osmi.Utils.Tap;
 using System.Diagnostics.CodeAnalysis;
 using static Mono.Security.X509.X520;
 
-<<<<<<< HEAD
 namespace GodhomeQoL;
-=======
-namespace SafeGodseekerQoL;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
 public static class ModuleManager
 {

@@ -1,4 +1,4 @@
-using MonoMod.ModInterop;
+﻿using MonoMod.ModInterop;
 
 using GodhomeQoL.ModInterop;
 namespace GodhomeQoL
@@ -22,7 +22,7 @@ namespace GodhomeQoL
             catch (Exception e)
             {
                 Logger.Log($"Exception during static initialization: {e}");
-                
+                //  Можно попытаться продолжить, но это может привести к дальнейшим проблемам.
             }
         }
         public GodhomeQoL() : base(ModInfo.Name) => Instance = this;

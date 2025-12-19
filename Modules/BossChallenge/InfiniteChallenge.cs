@@ -1,12 +1,7 @@
-using UnityEngine.Audio;
+﻿using UnityEngine.Audio;
 using Satchel.Futils;
-<<<<<<< HEAD
 using GodhomeQoL.Modules.QoL;
 namespace GodhomeQoL.Modules.BossChallenge;
-=======
-using SafeGodseekerQoL.Modules.QoL;
-namespace SafeGodseekerQoL.Modules.BossChallenge;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
 public sealed class InfiniteChallenge : Module
 {

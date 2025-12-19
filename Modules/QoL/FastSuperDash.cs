@@ -1,14 +1,10 @@
-using Satchel;
+﻿using Satchel;
 using Satchel.Futils;
 using Satchel.BetterMenus;
 using Osmi.FsmActions;
 using Satchel.BetterMenus.Config;
 
-<<<<<<< HEAD
 namespace GodhomeQoL.Modules.QoL;
-=======
-namespace SafeGodseekerQoL.Modules.QoL;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
 public sealed class FastSuperDash : Module {
 	private static readonly GameObjectRef knightRef = new(GameObjectRef.DONT_DESTROY_ON_LOAD, "Knight");
@@ -85,11 +81,7 @@ public sealed class FastSuperDash : Module {
 			trueEvent = FsmEvent.Finished
 		});
 
-<<<<<<< HEAD
-		
-=======
 		// Fire skip event immediately on entering charge states to remove wind-up when enabled.
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 		fsm.AddAction("Wall Charge", new InvokeMethod(() => {
 			if (shouldRemoveWinding()) {
 				fsm.SendEvent(skipEvent.Name);
@@ -140,11 +132,7 @@ public sealed class FastSuperDash : Module {
 			() => module?.Enabled ?? menuEnabled
 		);
 
-<<<<<<< HEAD
-		
-=======
 		// Always visible
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 		instantToggle.isVisible = true;
 		everywhereToggle.isVisible = true;
 		speedSlider.isVisible = true;

@@ -1,4 +1,4 @@
-using Mono.Cecil.Cil;
+﻿using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using MonoMod.RuntimeDetour;
 using Satchel.BetterMenus;
@@ -1016,7 +1016,7 @@ internal static class CanvasUtil {
 				return builtin;
 			}
 		} catch {
-			
+			// ignored
 		}
 
 		return Font.CreateDynamicFontFromOSFont("Arial", 14);

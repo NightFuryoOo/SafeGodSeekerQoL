@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-
-namespace GodhomeQoL.Settings
-=======
 ﻿
-namespace SafeGodseekerQoL.Settings
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
+namespace GodhomeQoL.Settings
 {
     [AttributeUsage(AttributeTargets.Field)]
     public sealed class GlobalSettingAttribute : Attribute

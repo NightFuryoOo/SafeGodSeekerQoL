@@ -1,4 +1,4 @@
-# Hollow Knight: GodhomeQoLQoL
+# Hollow Knight: GodhomeQoL
 
 This mod is useful for challenge runners who don't want their runs to be accidentally affected by QoL mods.
 

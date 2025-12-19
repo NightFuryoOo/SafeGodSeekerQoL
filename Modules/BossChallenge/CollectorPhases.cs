@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using HutongGames.PlayMaker;
@@ -8,11 +8,7 @@ using Satchel.BetterMenus;
 using Satchel.Futils;
 using SFCore.Utils;
 
-<<<<<<< HEAD
 namespace GodhomeQoL.Modules.CollectorPhases;
-=======
-namespace SafeGodseekerQoL.Modules.CollectorPhases;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
 public sealed class CollectorPhases : Module
 {
@@ -22,11 +18,7 @@ public sealed class CollectorPhases : Module
     private const int DefaultSpitterHp = 26;
 
     [LocalSetting]
-<<<<<<< HEAD
-    internal static int collectorPhase = 3; 
-=======
     internal static int collectorPhase = 3; // 1: stay in phase 1, 2: stay in phase 2, 3: default
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
     [LocalSetting]
     internal static bool CollectorImmortal = false;
@@ -114,22 +106,14 @@ public sealed class CollectorPhases : Module
 
     private static void HandlePhaseControl(PlayMakerFSM fsm)
     {
-<<<<<<< HEAD
-        
-=======
         // Stay in phase 1
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         if (collectorPhase == 1)
         {
             fsm.RemoveFsmTransition("Init", "FINISHED");
             return;
         }
 
-<<<<<<< HEAD
-        
-=======
         // Force start in phase 2
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         if (collectorPhase == 2)
         {
             fsm.ChangeFsmTransition("Init", "FINISHED", "Phase 2");
@@ -167,11 +151,7 @@ public sealed class CollectorPhases : Module
         }
         catch
         {
-<<<<<<< HEAD
-            
-=======
             // ignore missing state/actions to stay safe on variants
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         }
     }
 
@@ -203,11 +183,7 @@ public sealed class CollectorPhases : Module
         }
         catch
         {
-<<<<<<< HEAD
-            
-=======
             // ignore missing state/actions
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         }
     }
 
@@ -305,22 +281,14 @@ public sealed class CollectorPhases : Module
         fsm.AddCustomAction("Init", () => ApplyCollectorHealth(fsm.gameObject));
         GateSpawnStates(fsm);
 
-<<<<<<< HEAD
-        
-=======
         // Jar limits
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         IntCompare? compare = GetFirstActionOfType<IntCompare>(fsm, "Resummon?");
         if (compare != null)
         {
             compare.integer2.Value = IgnoreInitialJarLimit ? 0 : 3;
         }
 
-<<<<<<< HEAD
-        
-=======
         // Immortality toggle
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         if (CollectorImmortal)
         {
             fsm.RemoveFsmGlobalTransition("ZERO HP");
@@ -389,11 +357,7 @@ public sealed class CollectorPhases : Module
         }
         catch
         {
-<<<<<<< HEAD
-            
-=======
             // Ignore if field not present in this version.
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         }
     }
 
@@ -443,11 +407,7 @@ public sealed class CollectorPhases : Module
                 val =>
                 {
                     CustomPhase2Threshold = Mathf.Clamp(val, 1, 99999);
-<<<<<<< HEAD
                     GodhomeQoL.MarkMenuDirty();
-=======
-                    SafeGodseekerQoL.MarkMenuDirty();
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
                 },
                 () => CustomPhase2Threshold,
                 850,
@@ -465,11 +425,7 @@ public sealed class CollectorPhases : Module
                 val =>
                 {
                     collectorMaxHP = Mathf.Max(val, 100);
-<<<<<<< HEAD
                     GodhomeQoL.MarkMenuDirty();
-=======
-                    SafeGodseekerQoL.MarkMenuDirty();
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
                 },
                 () => collectorMaxHP,
                 5,
@@ -481,11 +437,7 @@ public sealed class CollectorPhases : Module
                 val =>
                 {
                     buzzerHP = Math.Max(val, 1);
-<<<<<<< HEAD
                     GodhomeQoL.MarkMenuDirty();
-=======
-                    SafeGodseekerQoL.MarkMenuDirty();
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
                 },
                 () => buzzerHP,
                 26,
@@ -503,11 +455,7 @@ public sealed class CollectorPhases : Module
                 val =>
                 {
                     rollerHP = Math.Max(val, 1);
-<<<<<<< HEAD
                     GodhomeQoL.MarkMenuDirty();
-=======
-                    SafeGodseekerQoL.MarkMenuDirty();
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
                 },
                 () => rollerHP,
                 26,
@@ -525,11 +473,7 @@ public sealed class CollectorPhases : Module
                 val =>
                 {
                     spitterHP = Math.Max(val, 1);
-<<<<<<< HEAD
                     GodhomeQoL.MarkMenuDirty();
-=======
-                    SafeGodseekerQoL.MarkMenuDirty();
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
                 },
                 () => spitterHP,
                 26,
@@ -553,11 +497,7 @@ public sealed class CollectorPhases : Module
                 val =>
                 {
                     CustomSummonLimit = Mathf.Clamp(val, 2, 999);
-<<<<<<< HEAD
                     GodhomeQoL.MarkMenuDirty();
-=======
-                    SafeGodseekerQoL.MarkMenuDirty();
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
                 },
                 () => CustomSummonLimit,
                 20,
@@ -570,11 +510,7 @@ public sealed class CollectorPhases : Module
                 _ =>
                 {
                     ResetDefaults();
-<<<<<<< HEAD
                     GodhomeQoL.MarkMenuDirty();
-=======
-                    SafeGodseekerQoL.MarkMenuDirty();
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
                 },
                 true
             )
@@ -630,11 +566,7 @@ public sealed class CollectorPhases : Module
         }
         catch
         {
-<<<<<<< HEAD
-            
-=======
             // ignore missing states/actions
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         }
     }
 
@@ -672,11 +604,7 @@ public sealed class CollectorPhases : Module
         }
         catch
         {
-<<<<<<< HEAD
-            
-=======
             // Ignore if state not found; this prevents hard failures on variant FSMs.
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         }
     }
 
@@ -754,11 +682,7 @@ public sealed class CollectorPhases : Module
 
                 if (fallback.Count == 0)
                 {
-<<<<<<< HEAD
-                    
-=======
                     // Nothing allowed: leave pool empty to avoid spawning.
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
                     pool.Values = Array.Empty<object>();
                     count.Value = 0;
                     return;
@@ -876,11 +800,7 @@ public sealed class CollectorPhases : Module
         string? fallback = GetFirstEnabledState();
         if (fallback == null)
         {
-<<<<<<< HEAD
-            
-=======
             // No types enabled; disable jar entirely.
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
             UObject.Destroy(fsm.gameObject);
             return;
         }
@@ -891,11 +811,7 @@ public sealed class CollectorPhases : Module
         }
         catch
         {
-<<<<<<< HEAD
-            
-=======
             // Ignore missing states.
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         }
     }
 

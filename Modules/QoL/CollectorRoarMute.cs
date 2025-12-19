@@ -1,14 +1,10 @@
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using MonoMod.RuntimeDetour;
 
-<<<<<<< HEAD
 namespace GodhomeQoL.Modules.QoL;
-=======
-namespace SafeGodseekerQoL.Modules.QoL;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
 public sealed class CollectorRoarMute : Module
 {
@@ -194,19 +190,11 @@ public sealed class CollectorRoarMute : Module
 
         if (new string(br.ReadChars(4)) != "RIFF")
             return null;
-<<<<<<< HEAD
-        br.ReadInt32(); 
-        if (new string(br.ReadChars(4)) != "WAVE")
-            return null;
-
-        
-=======
         br.ReadInt32(); // file size
         if (new string(br.ReadChars(4)) != "WAVE")
             return null;
 
         // fmt chunk
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         string fmt = new string(br.ReadChars(4));
         if (fmt != "fmt ")
             return null;
@@ -214,27 +202,16 @@ public sealed class CollectorRoarMute : Module
         short audioFormat = br.ReadInt16();
         short channels = br.ReadInt16();
         int sampleRate = br.ReadInt32();
-<<<<<<< HEAD
-        br.ReadInt32(); 
-        br.ReadInt16(); 
-        short bitsPerSample = br.ReadInt16();
-        
-=======
         br.ReadInt32(); // byteRate
         br.ReadInt16(); // blockAlign
         short bitsPerSample = br.ReadInt16();
         // skip any extra fmt bytes
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         if (fmtSize > 16)
         {
             br.ReadBytes(fmtSize - 16);
         }
 
-<<<<<<< HEAD
-        
-=======
         // find data chunk
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         string dataHeader = new string(br.ReadChars(4));
         while (dataHeader != "data")
         {
@@ -246,11 +223,7 @@ public sealed class CollectorRoarMute : Module
 
         if (audioFormat != 1)
         {
-<<<<<<< HEAD
-            return null; 
-=======
             return null; // only PCM
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         }
 
         int sampleCount = dataSize / (bitsPerSample / 8);

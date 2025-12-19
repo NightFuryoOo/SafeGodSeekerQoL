@@ -1,18 +1,10 @@
-<<<<<<< HEAD
-namespace GodhomeQoL.Modules.QoL;
-=======
-namespace SafeGodseekerQoL.Modules.QoL;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
+﻿namespace GodhomeQoL.Modules.QoL;
 
 internal sealed class TeleportData
 {
     internal readonly (int id, string name, Vector3 position, string scene)[] Bosses =
     {
-<<<<<<< HEAD
-        
-=======
         // Page 1: Hall of Gods [1 Floor] (1-18)
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         (1, "Gruz Mother", new Vector3(28.03279f, 6.40824f, 0f), "GG_Workshop"),
         (2, "Vengefly King", new Vector3(36.43205f, 6.408124f, 0f), "GG_Workshop"),
         (3, "Brooding Mawlek", new Vector3(43.84856f, 6.408124f, 0f), "GG_Workshop"),
@@ -32,11 +24,7 @@ internal sealed class TeleportData
         (17, "Traitor Lord", new Vector3(186.6932f, 6.408124f, 0f), "GG_Workshop"),
         (18, "Grey Prince Zote", new Vector3(197.9937f, 6.408124f, 0f), "GG_Workshop"),
 
-<<<<<<< HEAD
-        
-=======
         // Page 2: Hall of Gods [2 Floor] (19-37)
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         (19, "Soul Warrior", new Vector3(33.99411f, 36.40812f, 0f), "GG_Workshop"),
         (20, "Soul Master/Soul Tyrant", new Vector3(44.98816f, 36.40812f, 0f), "GG_Workshop"),
         (21, "Dung Defender/White Defender", new Vector3(57.45609f, 36.40812f, 0f), "GG_Workshop"),
@@ -57,11 +45,7 @@ internal sealed class TeleportData
         (36, "The Eternal Ordeal", new Vector3(197.8246f, 63.40812f, 0f), "GG_Workshop"),
         (37, "HoG Bench", new Vector3(11.0521f, 36.40812f, 0f), "GG_Workshop"),
 
-<<<<<<< HEAD
-        
-=======
         // Page 3: Pantheon's (38-44)
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         (38, "Pantheon I", new Vector3(97.15343f, 35.40812f, 0f), "GG_Atrium"),
         (39, "Pantheon II", new Vector3(108.4116f, 35.40812f, 0f), "GG_Atrium"),
         (40, "Pantheon III", new Vector3(120.2336f, 35.40812f, 0f), "GG_Atrium"),
@@ -70,11 +54,7 @@ internal sealed class TeleportData
             (43, "Segmented Pantheon V", new Vector3(53.81337f, 19.40812f, 0f), "GG_Atrium_Roof"),
             (44, "Pantheon Bench", new Vector3(120.97f, 42.40812f, 0f), "GG_Atrium_Roof"),
 
-<<<<<<< HEAD
-        
-=======
         // Page 4: PoP Segments (45-46)
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
             (45, "PoP Start", new Vector3(9.735f, 7.408f, 0f), "White_Palace_06"),
         (46, "PoP End", new Vector3(19.5625f, 169.4081f, 0f), "White_Palace_20")
     };

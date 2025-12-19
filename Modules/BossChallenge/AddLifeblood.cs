@@ -1,15 +1,7 @@
-<<<<<<< HEAD
-namespace GodhomeQoL.Modules.BossChallenge;
+﻿namespace GodhomeQoL.Modules.BossChallenge;
 
 public sealed class AddLifeblood : Module {
 	[GlobalSetting]
-=======
-namespace SafeGodseekerQoL.Modules.BossChallenge;
-
-public sealed class AddLifeblood : Module {
-	[GlobalSetting]
-	[IntOption(0, 35, OptionType.Slider)]
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 	public static int lifebloodAmount = 0;
 
 	public override ToggleableLevel ToggleableLevel => ToggleableLevel.ChangeScene;
@@ -40,11 +32,7 @@ public sealed class AddLifeblood : Module {
 		LogDebug("Lifeblood added");
 	}
 
-<<<<<<< HEAD
-	
-=======
 	// Fix for Toggleable Bindings Shell Binding bug.
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 	private static void FixBlueHealthFSM() {
 		PlayMakerFSM fsm = Ref.GC.hudCanvas.Child("Health")!.LocateMyFSM("Blue Health Control");
 		if (fsm.ActiveStateName == "Wait") {

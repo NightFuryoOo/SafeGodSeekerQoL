@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 
 namespace GodhomeQoL.Modules.QoL;
-=======
-namespace SafeGodseekerQoL.Modules.QoL;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
 internal sealed class TeleportInputHandler : IDisposable
 {
@@ -12,11 +8,8 @@ internal sealed class TeleportInputHandler : IDisposable
     private string inputBuffer = string.Empty;
     private int currentPage = 1;
     private bool gameWasPaused;
-<<<<<<< HEAD
     private bool pauseEverOpened;
     private static bool pauseHintActive;
-=======
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
     internal TeleportInputHandler(TeleportKit mod)
     {
@@ -43,11 +36,8 @@ internal sealed class TeleportInputHandler : IDisposable
         IsRebindingTeleportKey = false;
     }
 
-<<<<<<< HEAD
     internal void ResetPauseFlag() => pauseEverOpened = false;
 
-=======
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
     private void CheckInput()
     {
         bool isGamePaused = GameManager.instance.IsGamePaused();
@@ -63,10 +53,7 @@ internal sealed class TeleportInputHandler : IDisposable
 
         if (isGamePaused)
         {
-<<<<<<< HEAD
             pauseEverOpened = true;
-=======
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
             return;
         }
 
@@ -98,7 +85,6 @@ internal sealed class TeleportInputHandler : IDisposable
 
         if (Input.GetKeyDown(mod.MenuKey))
         {
-<<<<<<< HEAD
             if (!pauseEverOpened)
             {
                 mod.Log.Write("Menu hotkey ignored because pause menu was not opened yet");
@@ -106,8 +92,6 @@ internal sealed class TeleportInputHandler : IDisposable
                 return;
             }
 
-=======
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
             ShowMenu = !ShowMenu;
             inputBuffer = string.Empty;
             currentPage = 1;
@@ -316,7 +300,6 @@ internal sealed class TeleportInputHandler : IDisposable
         IsRebindingTeleportKey = false;
         mod.Log.Write("Game paused, resetting menu state");
     }
-<<<<<<< HEAD
 
     private static void ShowPauseHint()
     {
@@ -387,6 +370,4 @@ internal sealed class TeleportInputHandler : IDisposable
 
         pauseHintActive = false;
     }
-=======
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 }

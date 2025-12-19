@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-using Satchel;
-using Satchel.Futils;
-using UnityEngine.UI;
-
-namespace GodhomeQoL.Modules.BossChallenge
-=======
 ﻿using Satchel;
 using Satchel.Futils;
 using UnityEngine.UI;
 
-namespace SafeGodseekerQoL.Modules.BossChallenge
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
+namespace GodhomeQoL.Modules.BossChallenge
 {
     public sealed class SegmentedP5 : Module
     {
@@ -181,17 +173,10 @@ namespace SafeGodseekerQoL.Modules.BossChallenge
 
             if (door.gameObject != segP5)
             {
-<<<<<<< HEAD
-                
-                if (selectBtn != null)
-                {
-                    
-=======
                 // Not Segmented P5
                 if (selectBtn != null)
                 {
                     // Restore navigation
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
                     MenuButton oldSelectBtn = selectBtn.GetComponent<MenuButton>();
                     Navigation oldNav = oldSelectBtn.navigation;
 
@@ -217,11 +202,7 @@ namespace SafeGodseekerQoL.Modules.BossChallenge
 
             if (selectBtn != null)
             {
-<<<<<<< HEAD
-                
-=======
                 // Created last time
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
                 return;
             }
 
@@ -343,22 +324,6 @@ namespace SafeGodseekerQoL.Modules.BossChallenge
 
                     BossSequenceController.ApplyBindings();
 
-<<<<<<< HEAD
-                    
-                    
-                    
-                    
-                    
-
-                    
-                    
-                    
-
-                    
-                    
-                    
-                    
-=======
                     //if (ModuleManager.IsModuleLoaded<ActivateFury>())
                     //{
                     //    BossSceneController.SetupEventDelegate oldSetupEvent = BossSceneController.SetupEvent;
@@ -373,7 +338,6 @@ namespace SafeGodseekerQoL.Modules.BossChallenge
                     //{
                     //    AddLifeblood.Add();
                     //}
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
                 };
             }
 

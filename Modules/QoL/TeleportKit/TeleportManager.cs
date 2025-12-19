@@ -1,16 +1,11 @@
-<<<<<<< HEAD
-using GodhomeQoL.Modules.Tools;
+﻿using GodhomeQoL.Modules.Tools;
 
 namespace GodhomeQoL.Modules.QoL;
-=======
-namespace SafeGodseekerQoL.Modules.QoL;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
 internal sealed class TeleportManager : IDisposable
 {
     private readonly TeleportKit mod;
     private bool isBusy;
-<<<<<<< HEAD
     private static bool pendingUiReset;
     private static readonly HashSet<string> GodhomeHubScenes = new(StringComparer.Ordinal)
     {
@@ -18,8 +13,6 @@ internal sealed class TeleportManager : IDisposable
         "GG_Atrium",
         "GG_Atrium_Roof"
     };
-=======
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
     internal TeleportManager(TeleportKit mod)
     {
@@ -57,7 +50,6 @@ internal sealed class TeleportManager : IDisposable
             yield break;
         }
 
-<<<<<<< HEAD
         bool timeScaleOverridden = SpeedChanger.TryBeginTimeScaleOverride(1f, out float previousTimeScale);
 
         try
@@ -193,7 +185,7 @@ internal sealed class TeleportManager : IDisposable
                 }
                 else if (isPantheonV || isPantheonVSegmented || isPantheonBench)
                 {
-                    
+                    // After entering via gate, place hero at the requested coordinates on the roof, set scene name, fade in, and lock respawn there.
                     GameManager.instance.sceneName = "GG_Atrium_Roof";
                     HeroController.instance.transform.position = targetPos;
                     HeroController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -201,7 +193,7 @@ internal sealed class TeleportManager : IDisposable
                     {
                         GameManager.instance.cameraCtrl.FadeSceneIn();
                     }
-                    
+                    // Reinforce position once the scene finishes settling to avoid drift/fall.
                     yield return new WaitForSeconds(0.05f);
                     HeroController.instance.transform.position = targetPos;
                     HeroController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -216,103 +208,12 @@ internal sealed class TeleportManager : IDisposable
             if (!isSameScene && (scene.StartsWith("White_Palace", StringComparison.Ordinal) || isDreamRoom))
             {
                 yield return new WaitForEndOfFrame();
-=======
-        mod.Log.Write($"Beginning teleport process to {targetPos} in {scene}");
-
-        if (scene == "GG_Workshop" && !PlayerData.instance.GetBool("godseekerUnlocked"))
-        {
-            PlayerData.instance.SetBool("godseekerUnlocked", true);
-            PlayerData.instance.SetBool("godseekerMet", true);
-            mod.Log.Write("Unlocked Godhome access");
-        }
-
-        bool isSameScene = GameManager.instance.sceneName == scene;
-        bool isDreamRoom = scene == "Dream_Room_Believer_Shrine";
-        bool isPOP45 = scene == "White_Palace_06" && targetPos == new Vector3(9.735f, 7.408f, 0f);
-        bool isPOP46 = scene == "White_Palace_20" && targetPos == new Vector3(19.5625f, 169.4081f, 0f);
-        bool isPantheonI = (scene == "GG_Atrium") && targetPos == new Vector3(97.15343f, 35.40812f, 0f);
-        bool isPantheonII = (scene == "GG_Atrium") && targetPos == new Vector3(108.4116f, 35.40812f, 0f);
-        bool isPantheonIII = (scene == "GG_Atrium") && targetPos == new Vector3(120.2336f, 35.40812f, 0f);
-        bool isPantheonIV = (scene == "GG_Atrium") && targetPos == new Vector3(147.3174f, 35.40812f, 0f);
-        bool isPantheonV = (scene == "GG_Atrium_Roof") && targetPos == new Vector3(96.971f, 73.408f, 0f);
-        bool isPantheonVSegmented = (scene == "GG_Atrium_Roof") && targetPos == new Vector3(53.81337f, 19.40812f, 0f);
-        bool isPantheonBench = (scene == "GG_Atrium_Roof") && targetPos == new Vector3(120.97f, 42.40812f, 0f);
-
-        if (!isSameScene)
-        {
-            HeroController.instance.StopAnimationControl();
-            HeroController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            HeroController.instance.RegainControl();
-
-            string targetScene = scene;
-            Vector3 entryPos = targetPos;
-            string entryGate = "left1";
-
-            if (isDreamRoom)
-            {
-                targetScene = "Dream_Room_Believer_Shrine";
-                entryPos = targetPos;
-            }
-            else if (isPOP46)
-            {
-                targetScene = "White_Palace_20";
-                entryPos = targetPos;
-                entryGate = "bot1";
-            }
-            else if (isPantheonI || isPantheonII || isPantheonIII)
-            {
-                targetScene = "GG_Atrium";
-                entryPos = targetPos;
-                entryGate = "top1";
-            }
-            else if (isPantheonIV)
-            {
-                targetScene = "GG_Atrium";
-                entryPos = targetPos;
-                entryGate = "top1";
-            }
-            else if (isPantheonV || isPantheonVSegmented || isPantheonBench)
-            {
-                entryGate = "bot1";
-                entryPos = targetPos;
-            }
-            else if (scene.StartsWith("White_Palace", StringComparison.Ordinal))
-            {
-                targetScene = "White_Palace_06";
-                entryPos = new Vector3(0.1111f, 7.408124f, 0f);
-            }
-
-            mod.Log.Write($"Loading target scene: {targetScene}");
-
-            if (isPantheonV || isPantheonVSegmented || isPantheonBench || isPantheonIV || isPantheonI || isPantheonII || isPantheonIII)
-            {
-                CleanSceneState();
-            }
-
-            var loadInfo = new GameManager.SceneLoadInfo
-            {
-                SceneName = targetScene,
-                EntryGateName = entryGate,
-                EntryDelay = 0f,
-                WaitForSceneTransitionCameraFade = false,
-                Visualization = GameManager.SceneLoadVisualizations.Default,
-                PreventCameraFadeOut = targetScene.StartsWith("White_Palace", StringComparison.Ordinal) || isDreamRoom
-            };
-
-            GameManager.instance.BeginSceneTransition(loadInfo);
-            yield return new WaitWhile(() => GameManager.instance.IsInSceneTransition);
-
-            if (targetScene.StartsWith("White_Palace", StringComparison.Ordinal) || isDreamRoom)
-            {
-                yield return new WaitForSeconds(0.2f);
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
                 if (GameManager.instance.cameraCtrl != null)
                 {
                     GameManager.instance.cameraCtrl.FadeSceneIn();
                 }
             }
 
-<<<<<<< HEAD
             mod.Log.Write("Teleport completed successfully");
             isBusy = false;
             NotifyTeleportCompleteForUi();
@@ -338,69 +239,6 @@ internal sealed class TeleportManager : IDisposable
         yield return new WaitForSecondsRealtime(0.5f);
 
         SpeedChanger.EndTimeScaleOverride(previousTimeScale);
-=======
-            HeroController.instance.transform.position = entryPos;
-            HeroController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            HeroController.instance.SetHazardRespawn(entryPos, true);
-
-            if (isDreamRoom)
-            {
-                yield return new WaitForSeconds(0.5f);
-                HeroController.instance.transform.position = targetPos;
-                HeroController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            }
-            else if (isPantheonI || isPantheonII || isPantheonIII)
-            {
-                GameManager.instance.sceneName = "GG_Atrium";
-                HeroController.instance.transform.position = targetPos;
-                HeroController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                HeroController.instance.SetHazardRespawn(targetPos, true);
-                if (GameManager.instance.cameraCtrl != null)
-                {
-                    GameManager.instance.cameraCtrl.FadeSceneIn();
-                }
-                yield return new WaitForSeconds(0.05f);
-                HeroController.instance.transform.position = targetPos;
-                HeroController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                HeroController.instance.SetHazardRespawn(targetPos, true);
-            }
-
-            else if (isPantheonV || isPantheonVSegmented || isPantheonBench)
-            {
-                // After entering via gate, place hero at the requested coordinates on the roof, set scene name, fade in, and lock respawn there.
-                GameManager.instance.sceneName = "GG_Atrium_Roof";
-                HeroController.instance.transform.position = targetPos;
-                HeroController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                HeroController.instance.SetHazardRespawn(targetPos, true);
-                if (GameManager.instance.cameraCtrl != null)
-                {
-                    GameManager.instance.cameraCtrl.FadeSceneIn();
-                }
-                // Reinforce position once the scene finishes settling to avoid drift/fall.
-                yield return new WaitForSeconds(0.05f);
-                HeroController.instance.transform.position = targetPos;
-                HeroController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                HeroController.instance.SetHazardRespawn(targetPos, true);
-            }
-        }
-        else
-        {
-            HeroController.instance.transform.position = targetPos;
-            HeroController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        }
-
-        if (!isSameScene && (scene.StartsWith("White_Palace", StringComparison.Ordinal) || isDreamRoom))
-        {
-            yield return new WaitForEndOfFrame();
-            if (GameManager.instance.cameraCtrl != null)
-            {
-                GameManager.instance.cameraCtrl.FadeSceneIn();
-            }
-        }
-
-        mod.Log.Write("Teleport completed successfully");
-        isBusy = false;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
     }
 
     private static void CleanSceneState()
@@ -433,7 +271,6 @@ internal sealed class TeleportManager : IDisposable
         PlayerData.instance.atBench = false;
     }
 
-<<<<<<< HEAD
     internal static void TryResetUiInput(GameObject? preferredSelection)
     {
         if (!pendingUiReset)
@@ -466,8 +303,6 @@ internal sealed class TeleportManager : IDisposable
         pendingUiReset = !string.IsNullOrEmpty(sceneName) && GodhomeHubScenes.Contains(sceneName!);
     }
 
-=======
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
     private string OnSceneChange(string newSceneName)
     {
         if (mod.Data.CustomTeleportScene != null && newSceneName != mod.Data.CustomTeleportScene)

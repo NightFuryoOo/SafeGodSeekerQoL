@@ -1,10 +1,6 @@
-using Satchel.BetterMenus;
+﻿using Satchel.BetterMenus;
 
-<<<<<<< HEAD
 namespace GodhomeQoL.Modules.CollectorPhases;
-=======
-namespace SafeGodseekerQoL.Modules.CollectorPhases;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
 public static class CollectorPhasesMenu {
 	public static MenuScreen GetMenu(MenuScreen parent) {

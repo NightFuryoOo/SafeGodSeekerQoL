@@ -1,5 +1,4 @@
-using Satchel.BetterMenus;
-<<<<<<< HEAD
+﻿using Satchel.BetterMenus;
 using GodhomeQoL.Modules;
 using GodhomeQoL.Modules.CollectorPhases;
 using GodhomeQoL.Modules.QoL;
@@ -7,19 +6,6 @@ using GodhomeQoL.Modules.QoL;
 namespace GodhomeQoL;
 
 public sealed partial class GodhomeQoL : ICustomMenuMod
-=======
-using TMPro;
-using UnityEngine;
-using UnityEngine.UI;
-using MenuButton = Satchel.BetterMenus.MenuButton;
-using SafeGodseekerQoL.Modules;
-using SafeGodseekerQoL.Modules.CollectorPhases;
-using SafeGodseekerQoL.Modules.QoL;
-
-namespace SafeGodseekerQoL;
-
-public sealed partial class SafeGodseekerQoL : ICustomMenuMod
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 {
     bool ICustomMenuMod.ToggleButtonInsideMenu => true;
 
@@ -29,15 +15,10 @@ public sealed partial class SafeGodseekerQoL : ICustomMenuMod
     private static class ModMenu
     {
         private static bool dirty = true;
-<<<<<<< HEAD
         private static Menu? menu;
 
         internal static void MarkDirty() => dirty = true;
 
-=======
-        private static Menu? menu = null;
-        internal static void MarkDirty() => dirty = true;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         static ModMenu() => On.Language.Language.DoSwitch += (orig, self) =>
         {
             dirty = true;
@@ -51,11 +32,7 @@ public sealed partial class SafeGodseekerQoL : ICustomMenuMod
                 return menu.GetMenuScreen(modListMenu);
             }
 
-<<<<<<< HEAD
             menu = new Menu("ModName".Localize(), [
-=======
-            menu = new("ModName".Localize(), [
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
                 toggleDelegates!.Value.CreateToggle(
                     "ModName".Localize(),
                     "ToggleButtonDesc".Localize()
@@ -65,7 +42,6 @@ public sealed partial class SafeGodseekerQoL : ICustomMenuMod
             ModuleManager
                 .Modules
                 .Values
-<<<<<<< HEAD
                 .Filter(module =>
                     !module.Hidden
                     && module is not CollectorPhases
@@ -82,7 +58,7 @@ public sealed partial class SafeGodseekerQoL : ICustomMenuMod
                         nameof(Modules.QoL) => () =>
                         {
                             Menu qlMenu = new($"Categories/{group.Key}".Localize(), []);
-                            
+                            // Base QoL elements
                             group
                                 .Filter(ShouldShowInMainList)
                                 .Map(module =>
@@ -103,11 +79,11 @@ public sealed partial class SafeGodseekerQoL : ICustomMenuMod
                             Setting.Global.GetMenuElements(group.Key).ForEach(qlMenu.AddElement);
                             Setting.Local.GetMenuElements(group.Key).ForEach(qlMenu.AddElement);
 
-                            
+                            // Add custom submenus; parent will be set after screen creation
                             var deferred = CustomMenuElements(group.Key, () => qlMenu.GetMenuScreen(menu!.menuScreen)).ToList();
                             deferred.ForEach(qlMenu.AddElement);
 
-                            
+                            // Build screen once after all elements are in place
                             return qlMenu.GetMenuScreen(menu!.menuScreen);
                         },
                         _ => () => new Menu(
@@ -141,44 +117,11 @@ public sealed partial class SafeGodseekerQoL : ICustomMenuMod
                         builder
                     );
                 })
-=======
-                .Filter(module => !module.Hidden && module is not CollectorPhases && module is not FastReload)
-                .GroupBy(module => module.Category)
-                .OrderBy(group => group.Key == nameof(Modules.Misc))
-                .ThenBy(group => group.Key)
-                .Map(group => Blueprints.NavigateToMenu(
-                    $"Categories/{group.Key}".Localize(),
-                    "",
-                    () => new Menu(
-                        $"Categories/{group.Key}".Localize(),
-                        [
-                            ..group
-                                .Filter(module => module is not FastSuperDash)
-                                .Map(module =>
-                                Blueprints.HorizontalBoolOption(
-                                    $"Modules/{module.Name}".Localize(),
-                                    module.Suppressed
-                                        ? string.Format(
-                                            "Suppression".Localize(),
-                                            module.suppressorMap.Values.Distinct().Join(", ")
-                                        )
-                                        : $"ToggleableLevel/{module.ToggleableLevel}".Localize(),
-                                    (val) => module.Enabled = val,
-                                    () => module.Enabled
-                                )
-                            ),
-                            ..Setting.Global.GetMenuElements(group.Key),
-                            ..Setting.Local.GetMenuElements(group.Key),
-                            ..CustomMenuElements(group.Key)
-                        ]).GetMenuScreen(menu!.menuScreen)
-                ))
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
                 .ForEach(menu.AddElement);
 
             menu.AddElement(Blueprints.NavigateToMenu(
                 "Tools".Localize(),
                 "",
-<<<<<<< HEAD
                 () =>
                 {
                     Menu toolsMenu = new("Tools".Localize(), []);
@@ -227,48 +170,14 @@ public sealed partial class SafeGodseekerQoL : ICustomMenuMod
                 "ResetModules".Localize(),
                 "",
                 () => ResetMenu(menu!.menuScreen)
-=======
-                () => new Menu(
-                    "Tools".Localize(),
-                    [
-                        Blueprints.NavigateToMenu("Modules/FastSuperDash".Localize(), "", () => FastSuperDash.GetMenu(menu.menuScreen)),
-                        Blueprints.NavigateToMenu("CollectorPhases".Localize(), "", () => CollectorPhasesMenu.GetMenu(menu.menuScreen)),
-                        Blueprints.NavigateToMenu("FastReload".Localize(), "", () => new Menu(
-                            "FastReload".Localize(),
-                            [..CustomMenuElements(nameof(FastReload))]
-                        ).GetMenuScreen(menu.menuScreen)),
-                        Blueprints.NavigateToMenu("DreamshieldSettings".Localize(), "", () => new Menu(
-                            "DreamshieldSettings".Localize(),
-                            [..CustomMenuElements("Dreamshield")]
-                        ).GetMenuScreen(menu.menuScreen)),
-                        Blueprints.NavigateToMenu("TeleportKit".Localize(), "", () => TeleportKitMenu(menu.menuScreen))
-                    ]
-                ).GetMenuScreen(menu.menuScreen)
-            ));
-
-            menu.AddElement(new MenuButton(
-                "ResetModules".Localize(),
-                string.Empty,
-                btn => ModuleManager.Modules.Values.ForEach(
-                    module => module.Enabled = module.DefaultEnabled
-                ),
-                true
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
             ));
 
             dirty = false;
             return menu.GetMenuScreen(modListMenu);
         }
-<<<<<<< HEAD
     }
 
     private static IEnumerable<Element> CustomMenuElements(string category, Func<MenuScreen> parent)
-=======
-
-    }
-
-    private static IEnumerable<Element> CustomMenuElements(string category)
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
     {
         List<Element> elements = [];
 
@@ -287,7 +196,6 @@ public sealed partial class SafeGodseekerQoL : ICustomMenuMod
             elements.AddRange(DreamshieldStartAngle.MenuElements());
         }
 
-<<<<<<< HEAD
         if (category == nameof(Modules.QoL))
         {
             elements.Add(BossAnimationSkipping(parent));
@@ -324,7 +232,7 @@ public sealed partial class SafeGodseekerQoL : ICustomMenuMod
             ));
         }
 
-        
+        // Infinite Challenge and related options
         AddModuleToggle<Modules.BossChallenge.InfiniteChallenge>();
         elements.Add(Blueprints.HorizontalBoolOption(
             "Settings/restartFightOnSuccess".Localize(),
@@ -339,15 +247,15 @@ public sealed partial class SafeGodseekerQoL : ICustomMenuMod
             () => Modules.BossChallenge.InfiniteChallenge.restartFightAndMusic
         ));
 
-        
+        // P5 options
         AddModuleToggle<Modules.BossChallenge.P5Health>();
         AddModuleToggle<Modules.BossChallenge.SegmentedP5>();
 
-        
+        // Halve Damage (HoG)
         AddModuleToggle<Modules.BossChallenge.HalveDamageHoGAscendedOrAbove>();
         AddModuleToggle<Modules.BossChallenge.HalveDamageHoGAttuned>();
 
-        
+        // Lifeblood and Soul with manual input
         AddModuleToggle<Modules.BossChallenge.AddLifeblood>();
         elements.Add(Blueprints.IntInputField(
             "Settings/lifebloodAmount".Localize(),
@@ -376,7 +284,7 @@ public sealed partial class SafeGodseekerQoL : ICustomMenuMod
             3
         ));
 
-        
+        // Grey Prince Zote enter type
         elements.Add(GreyPrinceEnterTypeOption(parent));
 
         return new Menu(
@@ -387,7 +295,7 @@ public sealed partial class SafeGodseekerQoL : ICustomMenuMod
 
     private static bool ShouldShowInMainList(Module module)
     {
-        
+        // Items moved to dedicated menus
         if (module is FastSuperDash
             || module is TeleportKit
             || module is Modules.QoL.FastDreamWarp
@@ -667,11 +575,6 @@ public sealed partial class SafeGodseekerQoL : ICustomMenuMod
         string IFormattable.ToString(string? format, IFormatProvider? formatProvider) => ToString();
     }
 
-=======
-        return elements;
-    }
-
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
     private static MenuScreen TeleportKitMenu(MenuScreen parent)
     {
         _ = ModuleManager.TryGetModule(typeof(TeleportKit), out Module? module);
@@ -695,21 +598,20 @@ public sealed partial class SafeGodseekerQoL : ICustomMenuMod
         ).GetMenuScreen(parent);
     }
 
-<<<<<<< HEAD
     private static void ResetVisibleOptionsToOff()
     {
-        
+        // Disable all non-hidden modules (видимые тумблеры модулей)
         ModuleManager.Modules.Values
             .Filter(m => !m.Hidden)
             .ForEach(m => m.Enabled = false);
 
-        
+        // Видимые булевые опции (не связаны напрямую с Enabled)
         Modules.BossChallenge.InfiniteChallenge.restartFightOnSuccess = false;
         Modules.BossChallenge.InfiniteChallenge.restartFightAndMusic = false;
 
         Modules.BossChallenge.ForceGreyPrinceEnterType.gpzEnterType = Modules.BossChallenge.ForceGreyPrinceEnterType.EnterType.Off;
 
-        
+        // SkipCutscenes (видимые флаги)
         Modules.QoL.SkipCutscenes.AutoSkipCinematics = false;
         Modules.QoL.SkipCutscenes.AllowSkippingNonskippable = false;
         Modules.QoL.SkipCutscenes.SkipCutscenesWithoutPrompt = false;
@@ -722,7 +624,7 @@ public sealed partial class SafeGodseekerQoL : ICustomMenuMod
         Modules.QoL.SkipCutscenes.SoulMasterPhaseTransitionSkip = false;
         Modules.QoL.SkipCutscenes.FirstTimeBosses = false;
 
-        
+        // FastSuperDash внутренние тумблеры (видимы в меню)
         Modules.QoL.FastSuperDash.instantSuperDash = false;
         Modules.QoL.FastSuperDash.fastSuperDashEverywhere = false;
     }
@@ -761,6 +663,4 @@ public sealed partial class SafeGodseekerQoL : ICustomMenuMod
                 )
             ]
         ).GetMenuScreen(parent);
-=======
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 }

@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-using Vasi;
-using static UnityEngine.UI.GridLayoutGroup;
-using Random = UnityEngine.Random;
-
-namespace GodhomeQoL.Modules.QoL
-=======
 ﻿using Vasi;
 using static UnityEngine.UI.GridLayoutGroup;
 using Random = UnityEngine.Random;
 
-namespace SafeGodseekerQoL.Modules.QoL
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
+namespace GodhomeQoL.Modules.QoL
 {
 
     [UsedImplicitly]
@@ -19,7 +11,6 @@ namespace SafeGodseekerQoL.Modules.QoL
         #region Settings
 
         [GlobalSetting]
-<<<<<<< HEAD
         public static bool AbsoluteRadiance = true;
 
         [GlobalSetting]
@@ -50,138 +41,22 @@ namespace SafeGodseekerQoL.Modules.QoL
         public static bool SkipCutscenesWithoutPrompt = true;
 
         [GlobalSetting]
-=======
-        [BoolOption]
-        public static bool DreamersGet = true;
-
-        [GlobalSetting]
-        [BoolOption]
-        public static bool AbsoluteRadiance = true;
-
-        [GlobalSetting]
-        [BoolOption]
-        public static bool AbyssShriekGet = true;
-
-        [GlobalSetting]
-        [BoolOption]
-        public static bool AfterKingsBrandGet = true;
-
-        [GlobalSetting]
-        [BoolOption]
-        public static bool BlackEggOpen = true;
-
-        [GlobalSetting]
-        [BoolOption]
-        public static bool StagArrive = true;
-
-        [GlobalSetting]
-        [BoolOption]
-        public static bool HallOfGodsStatues = true;
-
-        [GlobalSetting]
-        [BoolOption]
-        public static bool GodhomeEntry = true;
-
-        [GlobalSetting]
-        [BoolOption]
-        public static bool PureVesselRoar = true;
-
-        [GlobalSetting]
-        [BoolOption]
-        public static bool GrimmNightmare = true;
-
-        [GlobalSetting]
-        [BoolOption]
-        public static bool GreyPrinceZote = true;
-
-        [GlobalSetting]
-        [BoolOption]
-        public static bool Collector = true;
-
-        [GlobalSetting]
-        [BoolOption]
-        public static bool FirstTimeBosses = true;
-
-        [GlobalSetting]
-        [BoolOption]
-        public static bool FirstCharm = true;
-
-        [GlobalSetting]
-        [BoolOption]
-        public static bool AutoSkipCinematics = true;
-
-        [GlobalSetting]
-        [BoolOption]
-        public static bool AllowSkippingNonskippable = true;
-
-        [GlobalSetting]
-        [BoolOption]
-        public static bool SkipCutscenesWithoutPrompt = true;
-
-        [GlobalSetting]
-        [BoolOption]
-        public static bool InstantSceneFadeIns = true;
-
-        [GlobalSetting]
-        [BoolOption]
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         public static bool SoulMasterPhaseTransitionSkip = true;
 
         #endregion
         public override bool DefaultEnabled => true;
-<<<<<<< HEAD
         public override bool Hidden => true;
 
         public override ToggleableLevel ToggleableLevel => ToggleableLevel.ChangeScene;
 
         private static readonly (Func<bool>, Func<Scene, IEnumerator>)[] FSM_SKIPS =
         {
-=======
-
-        public override ToggleableLevel ToggleableLevel => ToggleableLevel.ChangeScene;
-
-        private const string GUARDIAN = "Dream_Guardian_";
-
-        private static readonly string[] DREAMERS = { "Deepnest_Spider_Town", "Fungus3_archive_02", "Ruins2_Watcher_Room" };
-
-        private static readonly string[] ALL_DREAMER_BOOLS =
-        {
-            nameof(PlayerData.corniferAtHome),
-            nameof(PlayerData.iseldaConvo1),
-            nameof(PlayerData.dungDefenderSleeping),
-            nameof(PlayerData.corn_crossroadsLeft),
-            nameof(PlayerData.corn_greenpathLeft),
-            nameof(PlayerData.corn_fogCanyonLeft),
-            nameof(PlayerData.corn_fungalWastesLeft),
-            nameof(PlayerData.corn_cityLeft),
-            nameof(PlayerData.corn_waterwaysLeft),
-            nameof(PlayerData.corn_minesLeft),
-            nameof(PlayerData.corn_cliffsLeft),
-            nameof(PlayerData.corn_deepnestLeft),
-            nameof(PlayerData.corn_outskirtsLeft),
-            nameof(PlayerData.corn_royalGardensLeft),
-            nameof(PlayerData.corn_abyssLeft),
-            nameof(PlayerData.metIselda),
-        };
-
-        private static readonly (Func<bool>, Func<Scene, IEnumerator>)[] FSM_SKIPS =
-        {
-            (() => DreamersGet, DreamerFsm),
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
             (() => AbsoluteRadiance, AbsRadSkip),
             (() => PureVesselRoar, HKPrimeSkip),
             (() => GrimmNightmare, GrimmNightmareSkip),
             (() => GreyPrinceZote, GreyPrinceZoteSkip),
             (() => Collector, CollectorSkip),
-<<<<<<< HEAD
             (() => HallOfGodsStatues, StatueWait)
-=======
-            (() => HallOfGodsStatues, StatueWait),
-            (() => StagArrive, StagCutscene),
-            (() => AbyssShriekGet, AbyssShriekPickup),
-            (() => AfterKingsBrandGet, KingsBrand),
-            (() => BlackEggOpen, BlackEgg)
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         };
 
 
@@ -195,7 +70,6 @@ namespace SafeGodseekerQoL.Modules.QoL
             nameof(PlayerData.mageLordEncountered_2),
         };
 
-<<<<<<< HEAD
         private static readonly HashSet<string> GodhomeHubScenes = new(StringComparer.Ordinal)
         {
             "GG_Workshop",
@@ -207,8 +81,6 @@ namespace SafeGodseekerQoL.Modules.QoL
         private static bool timeScaleOverrideActive;
         private static float previousTimeScale;
 
-=======
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         private protected override void Load()
         {
             On.CinematicSequence.Begin += CinematicBegin;
@@ -239,15 +111,6 @@ namespace SafeGodseekerQoL.Modules.QoL
 
         private static void OnNewGame()
         {
-<<<<<<< HEAD
-=======
-            if (FirstCharm)
-                PlayerData.instance.SetBool(nameof(PlayerData.hasCharm), true);
-
-            if (GodhomeEntry)
-                PlayerData.instance.SetBool(nameof(PlayerData.enteredGGAtrium), true);
-
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
             if (!FirstTimeBosses)
                 return;
 
@@ -257,28 +120,11 @@ namespace SafeGodseekerQoL.Modules.QoL
             }
         }
 
-<<<<<<< HEAD
         private static IEnumerator NoFade(On.GameManager.orig_FadeSceneInWithDelay orig, GameManager self, float delay) =>
             orig(self, delay);
 
         private static void FastEaseColor(On.HutongGames.PlayMaker.Actions.EaseColor.orig_OnEnter orig, EaseColor self) =>
             orig(self);
-=======
-        private static IEnumerator NoFade(On.GameManager.orig_FadeSceneInWithDelay orig, GameManager self, float delay)
-        {
-            yield return orig(self, InstantSceneFadeIns ? 0 : delay);
-        }
-
-        private static void FastEaseColor(On.HutongGames.PlayMaker.Actions.EaseColor.orig_OnEnter orig, EaseColor self)
-        {
-            if (InstantSceneFadeIns && self.Owner.name == "Blanker White" && Math.Abs(self.time.Value - 0.3) < .05)
-            {
-                self.time.Value = 0.066f;
-            }
-
-            orig(self);
-        }
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
         private static void MageLordPhaseTransitionSkip(On.GGCheckIfBossScene.orig_OnEnter orig, GGCheckIfBossScene self)
         {
@@ -309,36 +155,6 @@ namespace SafeGodseekerQoL.Modules.QoL
             }
         }
 
-<<<<<<< HEAD
-=======
-        private static IEnumerator StagCutscene(Scene _)
-        {
-            yield return null;
-
-            GameObject stag = GameObject.Find("Stag");
-
-            if (stag == null)
-                yield break;
-
-            PlayMakerFSM ctrl = stag.LocateMyFSM("Stag Control");
-
-            ctrl.GetState("Arrive Pause").RemoveAction<Wait>();
-            ctrl.GetState("Activate").RemoveAction<Wait>();
-            var anim = stag.GetComponent<tk2dSpriteAnimator>();
-
-            anim.GetClipByName("Arrive").fps = 600;
-
-            GameObject grate = ctrl.GetState("Open Grate").GetAction<Tk2dPlayAnimationWithEvents>().gameObject.GameObject.Value;
-
-            if (grate == null)
-                yield break;
-
-            var grate_anim = grate.GetComponent<tk2dSpriteAnimator>();
-
-            grate_anim.GetClipByName("Grate_disappear").fps = 600;
-        }
-
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         private static IEnumerator StatueWait(Scene arg1)
         {
             if (arg1.name != "GG_Workshop") yield break;
@@ -458,11 +274,7 @@ namespace SafeGodseekerQoL.Modules.QoL
 
                 setup.GetAction<Wait>().time = 1.5f;
                 setup.RemoveAction<SetPlayerDataBool>();
-<<<<<<< HEAD
-                
-=======
                 //Vasi.FsmUtil.RemoveAction(setup, 3);
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
                 setup.ChangeTransition("FINISHED", "Appear Boom");
 
                 control.GetAction<Wait>("Title Up").time = 1f;
@@ -474,7 +286,6 @@ namespace SafeGodseekerQoL.Modules.QoL
             }
         }
 
-<<<<<<< HEAD
         private static IEnumerator OnBeginSceneTransition(On.GameManager.orig_BeginSceneTransitionRoutine orig, GameManager self, GameManager.SceneLoadInfo info) =>
             RunSceneTransition(orig(self, info), info);
 
@@ -535,159 +346,16 @@ namespace SafeGodseekerQoL.Modules.QoL
                 global::GodhomeQoL.Modules.Tools.SpeedChanger.EndTimeScaleOverride(previousTimeScale);
                 timeScaleOverrideActive = false;
             }
-=======
-        private static IEnumerator DreamerFsm(Scene arg1)
-        {
-            if (!DREAMERS.Contains(arg1.name)) yield break;
-
-            yield return null;
-
-            GameObject dreamEnter = GameObject.Find("Dream Enter");
-
-            if (dreamEnter == null)
-                yield break;
-
-            dreamEnter.LocateMyFSM("Control").GetState("Idle").ChangeTransition("DREAM HIT", "Change Scene");
-        }
-
-        private static IEnumerator AbyssShriekPickup(Scene arg1)
-        {
-            if (arg1.name != "Abyss_12") yield break;
-
-            yield return null;
-
-            PlayMakerFSM shriek = GameObject.Find("Scream 2 Get").LocateMyFSM("Scream Get");
-
-            shriek.GetState("Move To").ChangeTransition("FINISHED", "Get");
-            shriek.GetState("Get Pause").RemoveAllOfType<Wait>();
-            shriek.GetState("Land").RemoveAllOfType<Wait>();
-
-        }
-
-        private static IEnumerator KingsBrand(Scene arg1)
-        {
-            yield return KingsBrandHornet(arg1);
-            yield return KingsBrandAvalanche(arg1);
-        }
-
-        private static IEnumerator KingsBrandHornet(Scene arg1)
-        {
-            if (arg1.name != "Deepnest_East_12") yield break;
-
-            yield return null;
-
-            PlayMakerFSM hornet = GameObject.Find("Hornet Blizzard Return Scene").LocateMyFSM("Control");
-
-
-
-            hornet.GetState("Fade Pause").RemoveAllOfType<Wait>();
-            hornet.GetState("Fade In").RemoveAllOfType<Wait>();
-            hornet.GetState("Land").RemoveAllOfType<Wait>();
-        }
-
-        private static IEnumerator KingsBrandAvalanche(Scene arg1)
-        {
-            if (arg1.name != "Room_Wyrm") yield break;
-
-            yield return null;
-
-            PlayMakerFSM avalanche = GameObject.Find("Avalanche End").LocateMyFSM("Control");
-
-
-            avalanche.GetState("Fade").GetAction<Wait>().time = 1;
-        }
-
-        private static IEnumerator BlackEgg(Scene arg1)
-        {
-            if (arg1.name != "Room_temple") yield break;
-
-            yield return null;
-
-            PlayMakerFSM door = GameObject.Find("Final Boss Door").LocateMyFSM("Control");
-
-
-            door.GetState("Take Control").RemoveAllOfType<Wait>();
-            door.GetState("Shake").GetAction<Wait>().time = 1;
-            door.GetState("Barrier Flash").RemoveAllOfType<Wait>();
-            door.GetState("Blow").RemoveAllOfType<Wait>();
-            door.GetState("Door Off").RemoveAllOfType<Wait>();
-            door.GetState("Roar").RemoveAllOfType<Wait>();
-            door.GetState("Roar End").GetAction<Wait>().time = 1;
-        }
-
-        private static IEnumerator OnBeginSceneTransition(On.GameManager.orig_BeginSceneTransitionRoutine orig, GameManager self, GameManager.SceneLoadInfo info)
-        {
-            if (InstantSceneFadeIns)
-            {
-                info.EntryDelay = 0f;
-            }
-
-            if (!DreamersGet || info.SceneName.Length <= 15 || info.SceneName.Substring(0, 15) != GUARDIAN)
-            {
-                yield return orig(self, info);
-
-                yield break;
-            }
-
-            string @bool = info.SceneName.Substring(15);
-
-            PlayerData pd = PlayerData.instance;
-
-            pd.SetBool($"{@bool.ToLower()}Defeated", true);
-            pd.SetBool($"maskBroken{@bool}", true);
-            pd.guardiansDefeated++;
-            pd.crossroadsInfected = true;
-
-            if (pd.guardiansDefeated == 3)
-            {
-                pd.mrMushroomState = 1;
-                pd.brettaState++;
-
-                foreach (string pdBool in ALL_DREAMER_BOOLS)
-                    pd.SetBool(pdBool, true);
-            }
-
-            info.SceneName = GameManager.instance.sceneName;
-            info.EntryGateName = "door_dreamReturn";
-
-            GameCameras.instance.cameraFadeFSM.Fsm.Event("FADE INSTANT");
-
-            yield return orig(self, info);
-
-            GameCameras.instance.cameraFadeFSM.Fsm.SetState("FadeIn");
-
-            yield return null;
-
-            HeroController.instance.MaxHealth();
-
-            while (GameManager.instance.gameState != GameState.PLAYING)
-            {
-                yield return null;
-            }
-
-            yield return null;
-
-            PlayMakerFSM.BroadcastEvent("BOX DOWN");
-            PlayMakerFSM.BroadcastEvent("BOX DOWN DREAM");
-
-            pd.SetBenchRespawn(UObject.FindObjectOfType<RespawnMarker>(), GameManager.instance.sceneName, 2);
-            GameManager.instance.SaveGame();
-
-            HeroController.instance.AcceptInput();
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         }
 
         private static void OnSetSkip(On.InputHandler.orig_SetSkipMode orig, InputHandler self, SkipPromptMode newmode)
         {
-<<<<<<< HEAD
             if (suppressAutoSkipForTransition)
             {
                 orig(self, newmode);
                 return;
             }
 
-=======
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
             if (AllowSkippingNonskippable && newmode is not (SkipPromptMode.SKIP_INSTANT or SkipPromptMode.SKIP_PROMPT))
             {
                 newmode = SkipCutscenesWithoutPrompt ? SkipPromptMode.SKIP_INSTANT : SkipPromptMode.SKIP_PROMPT;
@@ -702,11 +370,7 @@ namespace SafeGodseekerQoL.Modules.QoL
 
         private static void AnimatorBegin(On.AnimatorSequence.orig_Begin orig, AnimatorSequence self)
         {
-<<<<<<< HEAD
             if (AutoSkipCinematics && !BossSequenceController.IsInSequence && !suppressAutoSkipForTransition)
-=======
-            if (AutoSkipCinematics)
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
                 self.Skip();
             else
                 orig(self);
@@ -714,11 +378,7 @@ namespace SafeGodseekerQoL.Modules.QoL
 
         private static void FadeBegin(On.FadeSequence.orig_Begin orig, FadeSequence self)
         {
-<<<<<<< HEAD
             if (AutoSkipCinematics && !BossSequenceController.IsInSequence && !suppressAutoSkipForTransition)
-=======
-            if (AutoSkipCinematics)
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
                 self.Skip();
             else
                 orig(self);
@@ -726,18 +386,10 @@ namespace SafeGodseekerQoL.Modules.QoL
 
         private static void CinematicBegin(On.CinematicSequence.orig_Begin orig, CinematicSequence self)
         {
-<<<<<<< HEAD
             if (AutoSkipCinematics && !BossSequenceController.IsInSequence && !suppressAutoSkipForTransition)
-=======
-            if (AutoSkipCinematics)
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
                 self.Skip();
             else
                 orig(self);
         }
     }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265

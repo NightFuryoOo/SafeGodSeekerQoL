@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-namespace GodhomeQoL.Modules.Misc;
-=======
-namespace SafeGodseekerQoL.Modules.Misc;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
+﻿namespace GodhomeQoL.Modules.Misc;
 
 internal sealed class InspectHelper : Module {
 	public override bool Hidden => true;
@@ -15,11 +11,7 @@ internal sealed class InspectHelper : Module {
 			return;
 		}
 
-<<<<<<< HEAD
 		_ = GameObjectUtil.CreateHolder<Inspector>($"{nameof(GodhomeQoL)} Inspect Helper");
-=======
-		_ = GameObjectUtil.CreateHolder<Inspector>($"{nameof(SafeGodseekerQoL)} Inspect Helper");
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 		Log("Creating Inspect Helper GameObject");
 	}
 
@@ -30,13 +22,8 @@ internal sealed class InspectHelper : Module {
 
 	private sealed class Inspector : MonoBehaviour {
 		public Test test;
-<<<<<<< HEAD
 		public static GodhomeQoL Instance => GodhomeQoL.UnsafeInstance;
 		public static bool Active => GodhomeQoL.Active;
-=======
-		public static SafeGodseekerQoL Instance => SafeGodseekerQoL.UnsafeInstance;
-		public static bool Active => SafeGodseekerQoL.Active;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
 		public static Dictionary<string, Module> Modules => ModuleManager.Modules;
 

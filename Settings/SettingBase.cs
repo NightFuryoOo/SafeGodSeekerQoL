@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-
-=======
 ﻿
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 using Modding.Utils;
 using Satchel.BetterMenus;
 using System.Runtime.Serialization;
 
-<<<<<<< HEAD
 namespace GodhomeQoL.Settings
-=======
-namespace SafeGodseekerQoL.Settings
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 {
     public abstract class SettingBase<TAttr> where TAttr : Attribute
     {
@@ -94,23 +86,13 @@ namespace SafeGodseekerQoL.Settings
             {
                 foreach ((string name, (FieldInfo fi, Func<bool> getter, Action<bool> setter)) in boolFields)
                 {
-<<<<<<< HEAD
-                    
+                    // FastSuperDash handled via custom UI.
                     if (fi.DeclaringType == typeof(global::GodhomeQoL.Modules.QoL.FastSuperDash))
                     {
                         continue;
                     }
-                    
-                    if (fi.DeclaringType == typeof(global::GodhomeQoL.Modules.QoL.DreamshieldStartAngle))
-=======
-                    // FastSuperDash handled via custom UI.
-                    if (fi.DeclaringType == typeof(global::SafeGodseekerQoL.Modules.QoL.FastSuperDash))
-                    {
-                        continue;
-                    }
                     // DreamshieldStartAngle has custom UI; skip auto-generation.
-                    if (fi.DeclaringType == typeof(global::SafeGodseekerQoL.Modules.QoL.DreamshieldStartAngle))
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
+                    if (fi.DeclaringType == typeof(global::GodhomeQoL.Modules.QoL.DreamshieldStartAngle))
                     {
                         continue;
                     }
@@ -163,23 +145,13 @@ namespace SafeGodseekerQoL.Settings
             {
                 foreach ((string name, (FieldInfo fi, Func<float> getter, Action<float> setter)) in floatFields)
                 {
-<<<<<<< HEAD
-                    
+                    // FastSuperDash handled via custom UI.
                     if (fi.DeclaringType == typeof(global::GodhomeQoL.Modules.QoL.FastSuperDash))
                     {
                         continue;
                     }
-                    
-                    if (fi.DeclaringType == typeof(global::GodhomeQoL.Modules.QoL.DreamshieldStartAngle))
-=======
-                    // FastSuperDash handled via custom UI.
-                    if (fi.DeclaringType == typeof(global::SafeGodseekerQoL.Modules.QoL.FastSuperDash))
-                    {
-                        continue;
-                    }
                     // DreamshieldStartAngle has its own custom UI; skip auto-generation here.
-                    if (fi.DeclaringType == typeof(global::SafeGodseekerQoL.Modules.QoL.DreamshieldStartAngle))
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
+                    if (fi.DeclaringType == typeof(global::GodhomeQoL.Modules.QoL.DreamshieldStartAngle))
                     {
                         continue;
                     }
@@ -306,11 +278,7 @@ namespace SafeGodseekerQoL.Settings
             public override bool Equals(object obj) =>
                 obj is EnumWrapper other && other.Value.Equals(Value);
 
-<<<<<<< HEAD
-            
-=======
             // This is unused, just for suppressing the warning.
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
             public override int GetHashCode() => Value.GetHashCode();
 
             public override string ToString() => $"Settings/{Name}/{Variant}".Localize();

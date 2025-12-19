@@ -1,9 +1,5 @@
-{
-<<<<<<< HEAD
+﻿{
 	"ModName": "GodhomeQoL",
-=======
-	"ModName": "SafeGodseekerQoL",
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 	"ToggleButtonDesc": "Toggle all effects of this mod",
 	"ResetModules": "Reset all modules to default state",
 	"Suppression": "Suppressed by {0}.",
@@ -23,34 +19,21 @@
 	"Modules/ActivateFury": "Activate Fury",
 	"Modules/AddLifeblood": "Add Lifeblood",
 	"Modules/AddSoul": "Add Soul",
-<<<<<<< HEAD
-=======
-	"Modules/AggressiveGC": "Aggressive GC",
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 	"Modules/CameraKeepRumbling": "Camera Keep Rumbling",
 	"Modules/CarefreeMelodyReset": "Carefree Melody Reset",
 	"Modules/DreamshieldStartAngle": "Dreamshield Start Angle",
 	"Modules/CollectorPhases": "Collector Phases",
 	"Modules/CollectorRoarMute": "Collector Roar Mute",
 	"Modules/ColosseumOfFools": "Colosseum of Fools",
-<<<<<<< HEAD
 	"Modules/CorrectRadianceHP": "Correct Radiance HP",
 	"Modules/CreateLag": "Create Lag",
 	"Modules/CrossingOoma": "Crossing Ooma",
 	"Modules/DoorDefaultBegin": "Pantheon Door Always - \"Begin\"",
-=======
-	"Modules/CompleteLowerDifficulty": "Complete Lower Difficulty",
-	"Modules/CorrectRadianceHP": "Correct Radiance HP",
-	"Modules/CreateLag": "Create Lag",
-	"Modules/CrossingOoma": "Crossing Ooma",
-	"Modules/DoorDefaultBegin": "Door Default Begin",
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 	"Modules/EternalOrdealPlatform": "Eternal Ordeal Platform",
 	"Modules/FastDash": "Fast Dash",
 	"Modules/FastMenus": "Fast Menus",
 	"Modules/FastDreamWarp": "Fast Dream Warp",
 	"Modules/FastText": "Fast Text",
-<<<<<<< HEAD
 	"Modules/FasterLoads": "Fast Loads",
 	"Modules/FastSuperDash": "Fast Super Dash",
 	"Modules/FastReload": "Fast Reload",
@@ -63,21 +46,6 @@
 	"Modules/HalveDamageHoGAttuned": "Halve Damage [HoG Attuned]",
 	"Modules/HalveDamageOtherPlace": "Halve Damage (Other Place)",
 	"Modules/HalveDamagePantheons": "Halve Damage (Pantheons)",
-=======
-	"Modules/FasterLoads": "Faster Loads",
-	"Modules/FastSuperDash": "Fast Super Dash",
-	"Modules/FastReload": "Fast Reload",
-	"Modules/ForceArriveAnimation": "Force Arrive Animation",
-	"Modules/ForceGreyPrinceEnterType": "Force Grey Prince Enter Type",
-	"Modules/GodTamerBeastRollCollider": "God Tamer Beast Roll Collider",
-	"Modules/GreyPrinceNailSlamCollider": "Grey Prince Nail Slam Collider",
-	"Modules/GreyPrinceToggle": "Grey Prince Toggle",
-	"Modules/HalveDamageHoGAscendedOrAbove": "Halve Damage (HoG Ascended or above)",
-	"Modules/HalveDamageHoGAttuned": "Halve Damage (HoG Attuned)",
-	"Modules/HalveDamageOtherPlace": "Halve Damage (Other Place)",
-	"Modules/HalveDamagePantheons": "Halve Damage (Pantheons)",
-	"Modules/HUDDisplayChecker": "HUD Display Checker",
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 	"Modules/InfiniteChallenge": "Infinite Challenge",
 	"Modules/InfiniteGrimmPufferfish": "Infinite Grimm Pufferfish",
 	"Modules/InfiniteRadianceClimbing": "Infinite Radiance Climbing",
@@ -106,11 +74,8 @@
 	"Modules/SkipCutscenes": "Skip Cutscenes",
 	"Modules/TeleportKit": "Teleport Kit",
 	"TeleportKit": "Teleport Kit",
-<<<<<<< HEAD
 	"Categories/MenuAnimationSkipping": "Menu Animation Skipping",
 	"Categories/BossAnimationSkipping": "Boss Animation Skipping",
-=======
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 	"BelongsToModule": "Module: ",
 	"Settings/dcrestEffectRemoval": "Defender's Crest Effect Removal",
 	"Settings/dcrestEffectRemoval/TrailOnly": "Trail Only",
@@ -133,19 +98,12 @@
 	"Settings/FastReload/TeleportDesc": "Press to pick a key to teleport between HoG spots (Esc cancels, same key clears).",
 	"Settings/FastReload/SetKey": "Set Key...",
 	"Settings/FastReload/NotSet": "Not Set",
-<<<<<<< HEAD
 	"Settings/restartFightOnSuccess": "Restart Fight On Success",
-=======
-	"Settings/restartFightOnSuccess": "Restart Fight On Success As Well",
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 	"Settings/restartFightAndMusic": "Restart Fight and Music",
 	"Settings/soulAmount": "Soul Amount",
 	"Settings/DreamersGet": "Dreamers Get",
 	"Settings/AbsoluteRadiance": "Absolute Radiance",
-<<<<<<< HEAD
 	"Settings/gpzEnterType/Off": "Off",
-=======
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 	"Settings/AbyssShriekGet": "Abyss Shriek Get",
 	"Settings/AfterKingsBrandGet": "After Kings Brand Get",
 	"Settings/BlackEggOpen": "Black Egg Open",
@@ -180,13 +138,8 @@
 	"Settings/AllowSkippingNonskippable": "Allow Skipping Nonskippable",
 	"Settings/SkipCutscenesWithoutPrompt": "Skip Cutscenes Without Prompt",
 	"Settings/InstantSceneFadeIns": "Instant Scene Fade Ins",
-<<<<<<< HEAD
 	"Settings/SoulMasterPhaseTransitionSkip": "Soul Master Phase",
 	"Settings/HallOfGodsStatues": "Skip Statue Animation",
-=======
-	"Settings/SoulMasterPhaseTransitionSkip": "Soul Master Phase Transition Skip",
-	"Settings/HallOfGodsStatues": "Hall Of Gods Statues",
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 	"SegmentedP5/SelectSegment": "Select Segment",
 	"SegmentedP5/Segment/0": "Vengefly King - Nailmasters Oro & Mato",
 	"SegmentedP5/Segment/1": "Xero - Sisters of Battle",
@@ -195,7 +148,6 @@
 	"SegmentedP5/Segment/4": "Watcher Knights - Hornet Sentinel",
 	"SegmentedP5/Segment/5": "Enraged Guardian - White Defender",
 	"SegmentedP5/Segment/6": "Soul Tyrant - Nightmare King Grimm",
-<<<<<<< HEAD
 	"SegmentedP5/Segment/7": "Pure Vessel - Absolute Radiance",
 	"SpeedChanger": "SpeedChanger",
 	"SpeedChanger/GlobalSwitch": "Global Switch",
@@ -212,7 +164,4 @@
 	"SpeedChanger/SpeedDown": "Slow Game Down (-{0})",
 	"SpeedChanger/SpeedDownDesc": "Press to choose a key for slowing down (same key clears, Esc cancels).",
 	"SpeedChanger/NotSet": "Not Set"
-=======
-	"SegmentedP5/Segment/7": "Pure Vessel - Absolute Radiance"
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 }

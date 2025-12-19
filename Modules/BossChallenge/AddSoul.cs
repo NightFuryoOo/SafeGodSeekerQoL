@@ -1,15 +1,7 @@
-<<<<<<< HEAD
-namespace GodhomeQoL.Modules.BossChallenge;
+﻿namespace GodhomeQoL.Modules.BossChallenge;
 
 public sealed class AddSoul : Module {
 	[GlobalSetting]
-=======
-namespace SafeGodseekerQoL.Modules.BossChallenge;
-
-public sealed class AddSoul : Module {
-	[GlobalSetting]
-	[IntOption(0, 198, 11)]
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 	public static int soulAmount = 0;
 
 	public override ToggleableLevel ToggleableLevel => ToggleableLevel.ChangeScene;

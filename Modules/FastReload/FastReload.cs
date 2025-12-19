@@ -1,13 +1,7 @@
-using Satchel.BetterMenus;
-<<<<<<< HEAD
+﻿using Satchel.BetterMenus;
 using GodhomeQoL.Modules.QoL;
 
 namespace GodhomeQoL.Modules;
-=======
-using SafeGodseekerQoL.Modules.QoL;
-
-namespace SafeGodseekerQoL.Modules;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
 public sealed class FastReload : Module {
     private const string WorkshopScene = "GG_Workshop";
@@ -218,11 +212,7 @@ public sealed class FastReload : Module {
 
             waitingForReloadRebind = false;
             UpdateReloadButton(FormatKeyLabel(ReloadKey));
-<<<<<<< HEAD
             GodhomeQoL.MarkMenuDirty();
-=======
-            SafeGodseekerQoL.MarkMenuDirty();
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
             return;
         }
     }
@@ -249,11 +239,7 @@ public sealed class FastReload : Module {
 
             waitingForTeleportRebind = false;
             UpdateTeleportButton(FormatKeyLabel(TeleportKey));
-<<<<<<< HEAD
             GodhomeQoL.MarkMenuDirty();
-=======
-            SafeGodseekerQoL.MarkMenuDirty();
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
             return;
         }
     }

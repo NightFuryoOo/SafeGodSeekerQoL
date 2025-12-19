@@ -1,11 +1,7 @@
-using MonoMod.RuntimeDetour;
+﻿using MonoMod.RuntimeDetour;
 using Satchel;
-<<<<<<< HEAD
 
 namespace GodhomeQoL.Modules.BossChallenge;
-=======
-namespace SafeGodseekerQoL.Modules.BossChallenge;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
 public sealed class P5Health : Module {
 	private static readonly Detour levelGetterDetour = new(
@@ -40,11 +36,7 @@ public sealed class P5Health : Module {
 	private static int FixDamage(ref int hazardType, int damage) => damage switch {
 		int i when i <= 0 => i,
 		int i when BossSceneController.IsBossScene is false => i,
-<<<<<<< HEAD
 		int i => BossSceneController.Instance.Reflect().bossLevel switch {
-=======
-		int i => BossSceneController.Instance?.Reflect().bossLevel switch {
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 			1 => i * 2,
 			2 => 9999,
 			_ => i,

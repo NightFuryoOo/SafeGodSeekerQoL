@@ -1,15 +1,11 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Linq;
 using HutongGames.PlayMaker.Actions;
 using Satchel.BetterMenus;
 using Satchel.BetterMenus.Config;
 
-<<<<<<< HEAD
 namespace GodhomeQoL.Modules.QoL;
-=======
-namespace SafeGodseekerQoL.Modules.QoL;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
 public sealed class DreamshieldStartAngle : Module
 {
@@ -57,11 +53,7 @@ public sealed class DreamshieldStartAngle : Module
 
     private static void OnSceneChanged(Scene previous, Scene next)
     {
-<<<<<<< HEAD
-        
-=======
         // Re-apply for existing shields that persist across scenes (DontDestroyOnLoad).
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         foreach (PlayMakerFSM fsm in UObject.FindObjectsOfType<PlayMakerFSM>(true))
         {
             if (!ShouldHandle(fsm))
@@ -197,11 +189,7 @@ public sealed class DreamshieldStartAngle : Module
         }
         follow.Actions = actions.ToArray();
 
-<<<<<<< HEAD
-        
-=======
         // Restart state so Rotate executes.
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
         fsm.Fsm.SetState("Follow");
     }
 

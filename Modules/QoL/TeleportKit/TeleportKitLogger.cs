@@ -1,11 +1,7 @@
-using System.IO;
+﻿using System.IO;
 using System.Text;
 
-<<<<<<< HEAD
 namespace GodhomeQoL.Modules.QoL;
-=======
-namespace SafeGodseekerQoL.Modules.QoL;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
 internal sealed class TeleportKitLogger
 {

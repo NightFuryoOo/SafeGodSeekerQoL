@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-using Osmi.FsmActions;
-=======
 ﻿using Osmi.FsmActions;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 using Satchel;
 using Satchel.Futils;
 using WaitUntil = UnityEngine.WaitUntil;
 
-<<<<<<< HEAD
 namespace GodhomeQoL.Modules.BossChallenge;
-=======
-namespace SafeGodseekerQoL.Modules.BossChallenge;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
 public sealed class InfiniteRadianceClimbing : Module {
     private static readonly float heroX = 60.4987f;

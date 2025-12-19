@@ -1,20 +1,13 @@
-using Osmi.FsmActions;
-<<<<<<< HEAD
+﻿using Osmi.FsmActions;
 using GodhomeQoL.Modules.Tools;
 using Satchel;
 using Satchel.Futils;
 
 namespace GodhomeQoL.Modules.QoL;
-=======
-using Satchel;
-
-namespace SafeGodseekerQoL.Modules.QoL;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
 public sealed class ShortDeathAnimation : Module {
 	public override bool DefaultEnabled => true;
 
-<<<<<<< HEAD
 	private static bool timeScaleOverrideInFlight;
 	private static float previousTimeScale;
 
@@ -22,29 +15,20 @@ public sealed class ShortDeathAnimation : Module {
 		On.HeroController.Start += ModifyHeroDeathFSM;
 		ModHooks.TakeHealthHook += NormalizeOnFatalDamage;
 	}
-=======
-	public ShortDeathAnimation() =>
-		On.HeroController.Start += ModifyHeroDeathFSM;
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
 	private void ModifyHeroDeathFSM(On.HeroController.orig_Start orig, HeroController self) {
 		orig(self);
 
-<<<<<<< HEAD
 		PlayMakerFSM? fsm = self.heroDeathPrefab?.LocateMyFSM("Hero Death Anim");
 		if (fsm == null) {
 			return;
 		}
 
 		ModifyHeroDeathFSM(fsm);
-=======
-		ModifyHeroDeathFSM(self.heroDeathPrefab.LocateMyFSM("Hero Death Anim"));
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 
 		LogDebug("Hero Death FSM modified");
 	}
 
-<<<<<<< HEAD
 	private int NormalizeOnFatalDamage(int damage) {
 		if (!Loaded) {
 			return damage;
@@ -81,7 +65,7 @@ public sealed class ShortDeathAnimation : Module {
 			StaticVariableList.SetValue("finishedBossReturning", false);
 		}
 		catch {
-			
+			// ignore if variable missing
 		}
 
 		try {
@@ -96,7 +80,7 @@ public sealed class ShortDeathAnimation : Module {
 			}
 		}
 		catch {
-			
+			// ignore if FSM or variable missing
 		}
 	}
 
@@ -192,9 +176,4 @@ public sealed class ShortDeathAnimation : Module {
 		GameObject deathPrefab = Ref.HC.heroDeathPrefab;
 		return deathPrefab != null && deathPrefab.activeSelf;
 	}
-=======
-	private void ModifyHeroDeathFSM(PlayMakerFSM fsm) => fsm.AddAction("Bursting",
-		new InvokePredicate(() => Loaded && BossSceneController.IsBossScene) { trueEvent = FsmEvent.Finished }
-	);
->>>>>>> 4ce2448229730eb047aa9980d21cea2bcc48d265
 }
